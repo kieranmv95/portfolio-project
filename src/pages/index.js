@@ -1,9 +1,17 @@
 import React from 'react';
+import styled from 'styled-components';
+import Layout from '../components/Layout';
+
+const StyledTitle = styled.h1`
+  color: ${({ theme }) => theme.color.text};
+`;
 
 export default function HomePage() {
   return (
-    <div>
-      <h1>Hello World, Update 1</h1>
-    </div>
+    <Layout>
+      <div>
+        <StyledTitle>Hello, world</StyledTitle>
+      </div>
+    </Layout>
   );
 }

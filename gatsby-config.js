@@ -1,7 +1,7 @@
 export default {
   siteMetadata: {
     title: 'Kieran Venison',
-    desciprtion: 'Kieran Venison personal website and blog',
+    description: 'The personal blog of kieran venison',
   },
-  plugins: [],
+  plugins: [`gatsby-plugin-styled-components`],
 };
