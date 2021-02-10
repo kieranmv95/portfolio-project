@@ -7,12 +7,21 @@ const mainTheme = {
     background: 'white',
     text: 'black',
   },
+  fonts: {
+    header: 'Montserrat',
+    copy: 'Source Sans Pro',
+  },
 };
 
 const GlobalStyles = createGlobalStyle`
   body {
     background: ${({ theme }) => theme.color.background};
-    color: ${({ theme }) => theme.color.text}
+    color: ${({ theme }) => theme.color.text};
+    font-family: ${({ theme }) => theme.fonts.copy}, sans-serif;
+  }
+
+  h1, h2, h3 {
+    font-family: ${({ theme }) => theme.fonts.header}, sans-serif;
   }
 `;
 
