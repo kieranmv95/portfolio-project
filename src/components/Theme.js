@@ -6,6 +6,7 @@ const mainTheme = {
   color: {
     background: 'white',
     text: 'black',
+    social_icons: '#B9B9B9',
   },
   fonts: {
     header: 'Montserrat',
