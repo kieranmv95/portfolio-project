@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { graphql } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faFacebookSquare,
@@ -20,16 +21,37 @@ const HomePageStyles = styled.div`
   }
 `;
 
-export default function HomePage() {
+export default function HomePage({ data }) {
+  const { social } = data.site.siteMetadata;
   return (
     <HomePageStyles>
       <h1>Hello, world</h1>
 
       <div className="icons">
-        <FontAwesomeIcon icon={faFacebookSquare} />
-        <FontAwesomeIcon icon={faLinkedin} />
-        <FontAwesomeIcon icon={faTwitterSquare} />
+        <a href={social.facebook}>
+          <FontAwesomeIcon icon={faFacebookSquare} />
+        </a>
+        <a href={social.linkedin}>
+          <FontAwesomeIcon icon={faLinkedin} />
+        </a>
+        <a href={social.twitter}>
+          <FontAwesomeIcon icon={faTwitterSquare} />
+        </a>
       </div>
     </HomePageStyles>
   );
 }
+
+export const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        social {
+          facebook
+          linkedin
+          twitter
+        }
+      }
+    }
+  }
+`;
