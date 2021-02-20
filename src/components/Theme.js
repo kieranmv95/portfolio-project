@@ -7,6 +7,8 @@ const mainTheme = {
     background: 'white',
     text: 'black',
     social_icons: '#B9B9B9',
+    primary: '#1758E8',
+    text_offset: '#9B9B9B',
   },
   fonts: {
     header: 'Montserrat',
@@ -23,6 +25,22 @@ const GlobalStyles = createGlobalStyle`
 
   h1, h2, h3 {
     font-family: ${({ theme }) => theme.fonts.header}, sans-serif;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+    @media (min-width: 768px) {
+      width: 80%;
+      margin: 0 auto;
+    }
+    @media (min-width: 992px) {
+      width: 960px;
+      margin: 0 auto;
+    }
   }
 `;
 
