@@ -7,6 +7,7 @@ import {
   faLinkedin,
   faTwitterSquare,
 } from '@fortawesome/free-brands-svg-icons';
+import Img from 'gatsby-image';
 
 const HomePageStyles = styled.div`
   .icons {
@@ -23,9 +24,13 @@ const HomePageStyles = styled.div`
 
 export default function HomePage({ data }) {
   const { social } = data.site.siteMetadata;
+  const { heroImg } = data;
+
   return (
     <HomePageStyles>
       <h1>Hello, world</h1>
+
+      <Img fluid={heroImg.childImageSharp.fluid} />
 
       <div className="icons">
         <a href={social.facebook}>
@@ -50,6 +55,13 @@ export const query = graphql`
           facebook
           linkedin
           twitter
+        }
+      }
+    }
+    heroImg: file(relativePath: { eq: "hero.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 1200) {
+          ...GatsbyImageSharpFluid_noBase64
         }
       }
     }
