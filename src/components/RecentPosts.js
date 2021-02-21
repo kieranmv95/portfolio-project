@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
 const RecentPostsStyled = styled.div`
@@ -21,18 +22,45 @@ const RecentPostsStyled = styled.div`
   }
 `;
 
-export default function RecentPosts({ posts }) {
+export default function RecentPosts() {
+  const { gatsbyImg, vueImg } = useStaticQuery(graphql`
+    query {
+      gatsbyImg: file(relativePath: { eq: "gatsby.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 600) {
+            ...GatsbyImageSharpFluid_noBase64
+          }
+        }
+      }
+      vueImg: file(relativePath: { eq: "vue.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 600) {
+            ...GatsbyImageSharpFluid_noBase64
+          }
+        }
+      }
+    }
+  `);
+
   return (
     <RecentPostsStyled>
       <div className="container">
         <h2>Recent Posts</h2>
         <div className="posts">
-          {posts.map((post) => (
-            <div key={post.title} className="post">
-              <p>{post.title}</p>
-              <Img fluid={post.img} alt={post.title} />
-            </div>
-          ))}
+          <div className="post">
+            <p>Creating a Gatbys JS Website from scratch</p>
+            <Img
+              fluid={gatsbyImg.childImageSharp.fluid}
+              alt="Creating a Gatbys JS Website from scratch thumbnail"
+            />
+          </div>
+          <div className="post">
+            <p>Taking our first steps into VueJS</p>
+            <Img
+              fluid={vueImg.childImageSharp.fluid}
+              alt="Taking our first steps into VueJS thumbnail"
+            />
+          </div>
         </div>
       </div>
     </RecentPostsStyled>
