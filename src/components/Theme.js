@@ -42,6 +42,19 @@ const GlobalStyles = createGlobalStyle`
       margin: 0 auto;
     }
   }
+
+  .hero__title {
+    margin: 0.5rem 0;
+  }
+  .hero__subtitle {
+    margin: 0;
+    font-weight: 300;
+    color: ${({ theme }) => theme.color.text_offset};
+  }
+
+  .text-center {
+    text-align: center;
+  }
 `;
 
 export default function Theme({ children }) {

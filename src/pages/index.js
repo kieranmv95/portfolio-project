@@ -27,11 +27,7 @@ const HomePageStyles = styled.div`
       justify-content: center;
     }
   }
-  .hero__title {
-    margin: 0.5rem 0;
-  }
-  .hero__prefix,
-  .hero__subtitle {
+  .hero__prefix {
     margin: 0;
     font-weight: 300;
     color: ${({ theme }) => theme.color.text_offset};
